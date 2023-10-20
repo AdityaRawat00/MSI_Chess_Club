@@ -1,3 +1,3 @@
 // https://api.chess.com/pub/player/{player_name}/stats
 
-alert("Abc")
+console.log("This is a text")

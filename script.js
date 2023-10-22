@@ -54,4 +54,14 @@ async function drawGraph() {
 }
 
 
+function openTab(gameType)
+{
+    
+  var i;
+  var x = document.getElementsByClassName("optionContent");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(gameType).style.display = "block";  
+}
 

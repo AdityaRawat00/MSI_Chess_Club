@@ -4,18 +4,31 @@ const datalink = "https://docs.google.com/spreadsheets/d/1t3dnHg8SWWsiSEbYSCvPAT
 let player_data = [];
 let user_name = [];
 
-let jsondata = [];
+let chess_data = [];
+let abcabc = []
 
-fetch("chess_data.csv")
-    .then(response=>response.text())
-    .then(csvdata => {
-        const row = csvdata.split("\n").map(row => row.split(","))
-        for(let r of row) 
-            jsondata.push(row);
-    });
-console.log(jsondata);
+async function getData(){
+    const response = await fetch("chess_data.csv");
+    const data = await response.text();
+    // console.log(data);
 
-drawGraph();
+    const rows = data.split("\r\n").slice(1);
+
+    for(let ele of rows){
+        const row = ele.split(',')
+        abcabc.push(row[0])
+        chess_data.push([row[1], row[2], row[3]])
+    }
+    // console.log(rows)
+}
+aaaa();
+async function aaaa(){
+    await getData();
+    console.log(abcabc[5], chess_data[5])
+}
+// console.log(typeof(abcabc))
+
+// drawGraph();
 
 function drawGraph() {
     const ctx = document.getElementById('chart');

@@ -8,10 +8,78 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id = "chart" height="200" width="800"></canvas>
+    <div class="navbar">
+        <div class="logo "><img src="" alt="logo here"></div>
+        <div class="navElements">
+            <input type="text" placeholder="Your chess.com username">
+        </div>
+            <button><a href="">Join Us</a></button>
+            <button><a href="">Your Stats</a></button>
+    </div>
+
+    <div class="mainPage">
+        <div class="newsImage">
+            <h2>---Upcomming Event---</h2>
+            <img src="eventCard.png" alt="eventCard">
+            <button><a href="">Register Now</a></button>
+        </div>
+
+        <div class="overallStats">
+            <h2>Overall Stats</h2>
+
+            <div class="optionButtons">
+                <button onclick="openTab('rapid')">Rapid</button>
+                <button onclick="openTab('blitz')">Blitz</button>
+                <button onclick="openTab('bullet')">Bullet</button>
+            </div>
+
+            <div id="rapid" class="optionContent">
+                <div class="optionContentAverage">
+                    <h3>--Average Rating--</h3>
+                    <span id="rapidAverageRating" style="font-size: 60px; color: white;">rating</span><span style="color: white; font-size: 20;">(elo)</span>
+                </div>
+
+                <div class="optionContentTop3">
+                    <h3 style="color: white;">--Top players--</h3>
+                    <span style="font-size: 50px;">1st : </span><span id="rapidPlayer1" style="font-size: 50px;">Player1</span><span style="font-size: 50px;">👑</span><br>
+                    <span style="font-size: 40px;">2nd : </span><span id="rapidPlayer2" style="font-size: 40px;">Player2</span><br>
+                    <span style="font-size: 30px;">3rd : </span><span id="rapidPlayer3" style="font-size: 30px;">Player3</span>
+                </div>
+            </div>
 
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+            <div id="blitz" class="optionContent" style="display: none;">
+                <div class="optionContentAverage">
+                    <h3>--Average Rating--</h3>
+                    <span id="blitzAverageRating" style="font-size: 60px; color: white;">rating</span><span style="color: white; font-size: 20;">(elo)</span>
+                </div>
+
+                <div class="optionContentTop3">
+                    <h3 style="color: white;">--Top players--</h3>
+                    <span style="font-size: 50px;">1st : </span><span id="blitzPlayer1" style="font-size: 50px;">Player1</span><span style="font-size: 50px;">👑</span><br>
+                    <span style="font-size: 40px;">2nd : </span><span id="blitzPlayer2" style="font-size: 40px;">Player2</span><br>
+                    <span style="font-size: 30px;">3rd : </span><span id="blitzPlayer3" style="font-size: 30px;">Player3</span>
+                </div>
+            </div>
+
+
+            
+            <div id="bullet" class="optionContent" style="display: none;">
+                <div class="optionContentAverage">
+                    <h3>--Average Rating--</h3>
+                    <span id="bulletAverageRating" style="font-size: 60px; color: white;">rating</span><span style="color: white; font-size: 20;">(elo)</span>
+                </div>
+
+                <div class="optionContentTop3">
+                    <h3 style="color: white;">--Top players--</h3>
+                    <span style="font-size: 50px;">1st : </span><span id="bulletPlayer1" style="font-size: 50px;">Player1</span><span style="font-size: 50px;">👑</span><br>
+                    <span style="font-size: 40px;">2nd : </span><span id="bulletPlayer2" style="font-size: 40px;">Player2</span><br>
+                    <span style="font-size: 30px;">3rd : </span><span id="bulletPlayer3" style="font-size: 30px;">Player3</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>

@@ -3,11 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>CSV Data Sorting</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
-    yo
-    <script src="script.js"></script>
+
+<table id="csvTable">
+    <!-- Table content will be added dynamically using JavaScript -->
+</table>
+
+<script>
+    // Fetch the CSV file
+    fetch('chess_data.csv')
+        .then(response => response.text())
+        .then(csvData => {
+            // Parse CSV data into a JavaScript array of objects
+            const rows = csvData.split('\n').map(row => row.split(','));
+
+            // Get headers and data
+            const headers = rows[0];
+            const data = rows.slice(1);
+
+            // Sort the data by the 'Rapid_Rating' column (change the index for other columns)
+            data.sort((a, b) => a[1] - b[1]);
+
+            // Create the table dynamically
+            const table = document.getElementById('csvTable');
+
+            // Create header row
+            const headerRow = table.insertRow();
+            headers.forEach(header => {
+                const th = document.createElement('th');
+                th.textContent = header;
+                headerRow.appendChild(th);
+            });
+
+            // Create data rows
+            data.forEach(rowData => {
+                const tr = table.insertRow();
+                rowData.forEach(cellData => {
+                    const td = tr.insertCell();
+                    td.textContent = cellData;
+                });
+            });
+        })
+        .catch(error => console.error('Error fetching CSV file:', error));
+</script>
+
 </body>
 </html>

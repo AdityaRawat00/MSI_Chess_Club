@@ -22,12 +22,6 @@ async function getData(){
     }
     // console.log(rows)
 }
-// aaaa();
-async function aaaa(){
-    await getData();
-    console.log(user_name, chess_data)
-}
-// console.log(typeof(abcabc))
 
 drawGraph();
 

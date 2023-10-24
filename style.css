@@ -130,3 +130,7 @@ h2{
 .optionContentAverage h3{
     color: rgb(227, 226, 226);
 }
+
+.canvas-div{
+    padding: 20px;
+}

@@ -7,7 +7,10 @@ let blitz = [];
 let bullet = [];
 
 async function getData(){
-    const response = await fetch("chess_data.csv");
+    const scriptPath = document.currentScript.src;
+    const basePath = scriptPath.substring(0, scriptPath.lastIndexOf('/') + 1);
+    const csvPath = basePath + "chess_data.csv";
+    const response = await fetch(csvPath);
     const data = await response.text();
     // console.log(data);
 

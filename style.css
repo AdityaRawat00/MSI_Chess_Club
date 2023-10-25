@@ -1,16 +1,13 @@
 body{
     padding: auto;
     margin: auto;
-    background-color: #302E2B;
-}
-#chart{
-    width: 900px;
-    height: 100px;
+    background-color: #2B2E31;
+    font-family: monospace;
+    color:white
 }
 
 .navbar{
-    /* background-color: #1a58bb; */
-    background-image: url('navBackGround.png');
+    background-image: url('Images/navBackGround.png');
     background-size: cover;
     display: flex;
     margin-left: 20px;
@@ -87,22 +84,19 @@ hr{
 .newsImage{
     flex: 6;
     margin:20px;
-    /* height: 330px; */
     border-radius: 10px;
     text-align: left;
     padding: 10px;
     padding-left: 15px;
-    background-color: #E0F0FF;
+    background-color: #222426;
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
 .newsImage img{
-    /* width: 100%; */
     height: 320px;
-    /* margin:auto; */
     border-radius: 10px;
+    margin-right: 40px;
 }
 
 .banner-heading{
@@ -111,13 +105,14 @@ hr{
     font-family: monospace;
     word-spacing: -10px;
     letter-spacing: -1px;
+    color: white;
 }
 
 .overallStats{
     flex:2;
     margin:20px;
     height: fit-content;
-    background-color: #262522;
+    background-color: #222426;
     text-align: left;
     padding: 10px 20px 20px 10px;
     border-radius: 10px;
@@ -187,6 +182,59 @@ h2{
     color: rgb(227, 226, 226);
 }
 
+
+/* Canvas */
+
 .canvas-div{
-    padding: 20px;
+    display: flex;
+ } 
+
+.type-of-graph{
+    /* margin-top: 30px; */
+    margin-left: 30px;
+    font-size: 32px;
+}
+
+.bargraph{
+    margin: 0 40px 0 30px;
+    height: 420px;
+    flex: 8;
+    border-radius: 10px;
+    text-align: left;
+    padding: 30px 10px 10px 10px;
+    padding-left: 15px;
+    background-color: #222426;
+} 
+
+.char{
+    margin-top: 30px;
+}
+
+table{
+    margin: 0 auto;
+}
+
+.table-container {
+    flex:3;
+    margin-right: 20px;
+    max-height: 460px;
+    width: 100px;
+    overflow-y: auto;
+    background-color: #222426;
+    border-radius: 10px;
+}
+
+.thead-container {
+    position: sticky;
+    top: 0;
+    background-color: #222426;
+    font-size: 18px;
+}
+th{
+    padding-top: 10px;
+}
+
+th, td{
+    padding-right: 20px;
+    text-align: center;
 }

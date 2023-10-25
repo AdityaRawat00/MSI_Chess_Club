@@ -27,7 +27,7 @@
     <div class="mainPage">
         <!-- Image -->
         <div class="newsImage" >
-            <img src="Images/chess_player.jpg" alt="eventCard">
+            <img src="Images/chess_playing-removebg-preview.png" alt="eventCard">
             <span class="banner-heading">MSI Chess Club</span>
         </div>
         <!-- End of image -->
@@ -43,7 +43,7 @@
                         <img src="Icons/chronometer.png" alt="clock" class="icons">
                         <span>Rapid</span>
                     </div>
-                    <span class="rapid">1200</span>
+                    <span id="rapid">1200</span>
                 </div>
                 <!-- End of Rapid -->
                 <hr>
@@ -53,7 +53,7 @@
                         <img src="Icons/light.png" alt="light" class="icons">
                         <span>Blitz</span>
                     </div>
-                    <span class="blitz">1200</span>
+                    <span id="blitz">1200</span>
                 </div>
                 <!-- End of blitz -->
                 <hr>
@@ -63,7 +63,7 @@
                         <img src="Icons/bullet.png" alt="bullet" class="icons">
                         <span>Bullet</span>
                     </div>
-                    <span class="bullet">1200</span>
+                    <span id="bullet">1200</span>
                 </div>
                 <!-- End of bullet -->
                 <hr>
@@ -73,7 +73,7 @@
                         <img src="Icons/puzzle.png" alt="puzzle" class="icons">
                         <span>Puzzle</span>
                     </div>
-                    <span class="puzzle">1200</span>
+                    <span id="puzzle">1200</span>
                 </div>
                 <!-- End of Puzzle -->
                 <hr>
@@ -83,7 +83,7 @@
                         <img src="Icons/pawn.png" alt="pawn" class="icons">
                         <span>Total players</span>
                     </div>
-                    <span class="total">42</span>
+                    <span id="total">42</span>
                 </div>
                 <!-- End of total -->
             </div>
@@ -92,9 +92,34 @@
     </div>
     
     <!-- Bar graph -->
-    <!-- <div class="canvas-div">
-        <canvas id="chart" width="900" height="200"></canvas>
-    </div> -->
+    <div class="canvas-div">
+        <div class="bargraph">
+            <span class="type-of-graph">Rapid</span>
+            <div class="char">
+                <canvas id="chart"></canvas>
+            </div>
+        </div>
+        <!-- Table div -->
+        <div class="table-container">
+            <div class="thead-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>UserName</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <table id="myTable">
+                <tbody>
+                    <!-- Table content will be added dynamically from JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        <!--End of table div  -->
+    </div>
     <!-- End of bar graph -->
 
     <script src="script.js"></script>

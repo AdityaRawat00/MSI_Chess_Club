@@ -1,7 +1,7 @@
 body{
     padding: auto;
     margin: auto;
-    background-color: rgb(17, 19, 19);
+    background-color: #302E2B;
 }
 #chart{
     width: 900px;
@@ -64,44 +64,100 @@ input{
     margin: auto;
     padding: 11px;
 }
+/* Navbar ended */
 
+
+/* Main page */
 .logo{
     margin-right: auto;
 }
 
 .mainPage{
     display: flex;
+    height: 390px;
 }
 
+hr{
+    height: 0.05px;
+    border-bottom: #353431 dotted 1px;
+    width: 100%;
+}
+
+
 .newsImage{
-    height: auto;
-    width:40%;
-    margin:40px;
-    background-color: #2b2b2b;
+    flex: 6;
+    margin:20px;
+    /* height: 330px; */
     border-radius: 10px;
-    text-align: center;
+    text-align: left;
     padding: 10px;
+    padding-left: 15px;
+    background-color: #E0F0FF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.newsImage img{
+    /* width: 100%; */
+    height: 320px;
+    /* margin:auto; */
+    border-radius: 10px;
+}
+
+.banner-heading{
+    margin-right: 10px;
+    font-size: 60px;
+    font-family: monospace;
+    word-spacing: -10px;
+    letter-spacing: -1px;
 }
 
 .overallStats{
-    margin:40px;
-    width: 60%;
+    flex:2;
+    margin:20px;
     height: fit-content;
-    background-color: #2b2b2b;
-    text-align: center;
+    background-color: #262522;
+    text-align: left;
+    padding: 10px 20px 20px 10px;
     border-radius: 10px;
     padding-bottom: 20px;
 }
+.stats-heading{
+    font-size: 22px;
+    font-family: monospace;
+    letter-spacing: -0.5px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 6;
+    margin-left: 6px;
+}
+
+.icons{
+    height: 20px;
+    margin: 0px 10px;
+}
+
+.aabbcc{
+    display: inline-flex;
+}
+
+.stats{
+    text-align: left;
+    margin: 15px 0px;
+    display: flex;
+    justify-content: space-between;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding-left: 0px;
+    font-size: 16px;
+    color: azure;
+}
+
 
 h2{
     color : white;
 }
-.newsImage img{
-    width: 100%;
-    height: auto;
-    margin:auto;
-    border-radius: 10px;
-}
+
 
 .optionButtons{
     background-color: rgba(78, 76, 45, 0);
@@ -129,4 +185,8 @@ h2{
 
 .optionContentAverage h3{
     color: rgb(227, 226, 226);
+}
+
+.canvas-div{
+    padding: 20px;
 }

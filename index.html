@@ -8,8 +8,11 @@
 
 </head>
 <body>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" integrity="sha512-dfX5uYVXzyU8+KHqj8bjo7UkOdg18PaOtpa48djpNbZHwExddghZ+ZmzWT06R5v6NSk3ZUfsH6FNEDepLx9hPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
+    <!-- Navbar -->
     <div class="navbar">
         <div class="logo "><img src="" alt="logo here"></div>
         <div class="navElements">
@@ -18,73 +21,81 @@
             <button><a href="">Join Us</a></button>
             <button><a href="">Your Stats</a></button>
     </div>
+    <!-- End of navbar -->
 
+    <!-- Main Page -->
     <div class="mainPage">
-        <div class="newsImage">
-            <h2>---Upcomming Event---</h2>
-            <img src="eventCard.png" alt="eventCard">
-            <button><a href="">Register Now</a></button>
+        <!-- Image -->
+        <div class="newsImage" >
+            <img src="Images/chess_player.jpg" alt="eventCard">
+            <span class="banner-heading">MSI Chess Club</span>
         </div>
+        <!-- End of image -->
 
+        <!-- Stats overview -->
         <div class="overallStats">
-            <h2>Overall Stats</h2>
-
-            <div class="optionButtons">
-                <button onclick="openTab('rapid')">Rapid</button>
-                <button onclick="openTab('blitz')">Blitz</button>
-                <button onclick="openTab('bullet')">Bullet</button>
-            </div>
-
-            <div id="rapid" class="optionContent">
-                <div class="optionContentAverage">
-                    <h3>--Average Rating--</h3>
-                    <span id="rapidAverageRating" style="font-size: 60px; color: white;">rating</span><span style="color: white; font-size: 20;">(elo)</span>
+            <h2 class="stats-heading">Avg Stats</h2>
+            <hr>
+            <div class="">
+                <!-- Rapid -->
+                <div class="stats">
+                    <div class="aabbcc">
+                        <img src="Icons/chronometer.png" alt="clock" class="icons">
+                        <span>Rapid</span>
+                    </div>
+                    <span class="rapid">1200</span>
                 </div>
-
-                <div class="optionContentTop3">
-                    <h3 style="color: white;">--Top players--</h3>
-                    <span style="font-size: 50px;">1st : </span><span id="rapidPlayer1" style="font-size: 50px;">Player1</span><span style="font-size: 50px;">👑</span><br>
-                    <span style="font-size: 40px;">2nd : </span><span id="rapidPlayer2" style="font-size: 40px;">Player2</span><br>
-                    <span style="font-size: 30px;">3rd : </span><span id="rapidPlayer3" style="font-size: 30px;">Player3</span>
+                <!-- End of Rapid -->
+                <hr>
+                <!-- Blitz -->
+                <div class="stats">
+                    <div class="aabbcc">
+                        <img src="Icons/light.png" alt="light" class="icons">
+                        <span>Blitz</span>
+                    </div>
+                    <span class="blitz">1200</span>
                 </div>
-            </div>
-
-
-            <div id="blitz" class="optionContent" style="display: none;">
-                <div class="optionContentAverage">
-                    <h3>--Average Rating--</h3>
-                    <span id="blitzAverageRating" style="font-size: 60px; color: white;">rating</span><span style="color: white; font-size: 20;">(elo)</span>
+                <!-- End of blitz -->
+                <hr>
+                <!-- Bullet -->
+                <div class="stats">
+                    <div class="aabbcc">
+                        <img src="Icons/bullet.png" alt="bullet" class="icons">
+                        <span>Bullet</span>
+                    </div>
+                    <span class="bullet">1200</span>
                 </div>
-
-                <div class="optionContentTop3">
-                    <h3 style="color: white;">--Top players--</h3>
-                    <span style="font-size: 50px;">1st : </span><span id="blitzPlayer1" style="font-size: 50px;">Player1</span><span style="font-size: 50px;">👑</span><br>
-                    <span style="font-size: 40px;">2nd : </span><span id="blitzPlayer2" style="font-size: 40px;">Player2</span><br>
-                    <span style="font-size: 30px;">3rd : </span><span id="blitzPlayer3" style="font-size: 30px;">Player3</span>
+                <!-- End of bullet -->
+                <hr>
+                <!-- Puzzle -->
+                <div class="stats">
+                    <div class="aabbcc">
+                        <img src="Icons/puzzle.png" alt="puzzle" class="icons">
+                        <span>Puzzle</span>
+                    </div>
+                    <span class="puzzle">1200</span>
                 </div>
-            </div>
-
-
-            
-            <div id="bullet" class="optionContent" style="display: none;">
-                <div class="optionContentAverage">
-                    <h3>--Average Rating--</h3>
-                    <span id="bulletAverageRating" style="font-size: 60px; color: white;">rating</span><span style="color: white; font-size: 20;">(elo)</span>
+                <!-- End of Puzzle -->
+                <hr>
+                <!-- Total -->
+                <div class="stats">
+                    <div class="aabbcc">
+                        <img src="Icons/pawn.png" alt="pawn" class="icons">
+                        <span>Total players</span>
+                    </div>
+                    <span class="total">42</span>
                 </div>
-
-                <div class="optionContentTop3">
-                    <h3 style="color: white;">--Top players--</h3>
-                    <span style="font-size: 50px;">1st : </span><span id="bulletPlayer1" style="font-size: 50px;">Player1</span><span style="font-size: 50px;">👑</span><br>
-                    <span style="font-size: 40px;">2nd : </span><span id="bulletPlayer2" style="font-size: 40px;">Player2</span><br>
-                    <span style="font-size: 30px;">3rd : </span><span id="bulletPlayer3" style="font-size: 30px;">Player3</span>
-                </div>
+                <!-- End of total -->
             </div>
         </div>
+        <!-- End of stats -->
     </div>
     
-    <div class="canvas-div">
+    <!-- Bar graph -->
+    <!-- <div class="canvas-div">
         <canvas id="chart" width="900" height="200"></canvas>
-    </div>
+    </div> -->
+    <!-- End of bar graph -->
 
     <script src="script.js"></script>
 </body>

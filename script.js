@@ -36,9 +36,9 @@ async function displayGraphTable(){
     //Rapid
     drawGraphRapid(rapid, "tableRapid", "chartRapid");   
     //Blitz
-    // drawGraphRapid(blitz, "tableBlitz", "chartBlitz"); 
+    drawGraphRapid(blitz, "tableBlitz", "chartBlitz"); 
     //Bullet
-    // drawGraphRapid(bullet, "tableBullet", "chartBullet"); 
+    drawGraphRapid(bullet, "tableBullet", "chartBullet"); 
 }
 
 
@@ -118,4 +118,22 @@ function openTab(gameType)
     x[i].style.display = "none";  
   }
   document.getElementById(gameType).style.display = "block";  
+}
+
+
+
+function openGraph(graphType,tableType)
+{
+    var i;
+    var x = document.getElementsByClassName("ratingGraph");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+    }
+    var y = document.getElementsByClassName("ratingTable");
+    for(i = 0; i < y.length ; i++)
+    {
+        y[i].style.display = "none";
+    }
+    document.getElementById(graphType).style.display = "block";
+    document.getElementById(tableType).style.display = "block";
 }

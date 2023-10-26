@@ -182,6 +182,22 @@ h2{
     color: rgb(227, 226, 226);
 }
 
+.graphOption{
+    margin: 30px;
+    font-size: 20px;
+    color: white;
+}
+
+.graphOption:hover{
+    margin: 30px;
+    font-size: 20px;
+    color: rgb(141, 231, 132);
+}
+
+.graphOption:focus{
+    font-size: 30px;
+    color: rgb(141, 255, 255);
+}
 
 /* Canvas */
 

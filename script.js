@@ -14,7 +14,6 @@ async function getData(){
     const csvPath = basePath + "chessdata.txt";
     const response = await fetch(csvPath);
     const data = await response.text();
-    // console.log(data);
 
     const rows = data.split("\r\n").slice(1, -1);
 
@@ -28,7 +27,7 @@ async function getData(){
     avg_values[0] = rapid.slice(-1);
     avg_values[1] = blitz.slice(-1);
     avg_values[2] = bullet.slice(-1);
-    // console.log(rows)
+    avg_values[3] = rows[rows.length-1].split(',')[4];
 }
 
 displayGraphTable();
@@ -48,7 +47,7 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
 
     const data = user_name.map((username, index) => ({ username, rating: typeofgraph[index]}));
 
-    // Sort Rapid data by rating
+    // Sorting Data in ascending and desceding
     const ascendingData = [...data].sort((a, b) => a.rating - b.rating);
     const descendingData = [...data].sort((a, b) => b.rating - a.rating);
 
@@ -57,8 +56,7 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
 
     const desUserName = descendingData.map(item=>item.username);
     const descRating = descendingData.map(item=>item.rating);
-
-    //Sort blitz data by rating 
+    //end
 
     const tableBody = document.querySelector(`#${tableId} tbody`);
     let x = 0;
@@ -78,10 +76,12 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
     document.getElementById("rapid").textContent = avg_values[0];
     document.getElementById("blitz").textContent = avg_values[1];
     document.getElementById("bullet").textContent = avg_values[2];
+    document.getElementById("puzzle").textContent = avg_values[3];
+    console.log(avg_values[3]);
     document.getElementById("total").textContent = rapid.length;
 
     const ctx = document.getElementById(`${chartId}`);
-    const myChart = new Chart(ctx, {
+    new Chart(ctx, {
         type: 'bar',
         data: {
             labels: ascUserName,
@@ -106,8 +106,6 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
             }
         }
     });
-    // myChart.data.datasets[0].backgroundColor[avgIndex] = 'rgba(255, 99, 132, 1)';
-    // myChart.backgroundColor[avgIndex] = 'rgba(255, 99, 132, 1)';
 }
 
 

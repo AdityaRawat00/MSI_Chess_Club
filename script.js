@@ -31,15 +31,24 @@ async function getData(){
     // console.log(rows)
 }
 
-drawGraph();
+displayGraphTable();
+
+async function displayGraphTable(){
+    //Rapid
+    drawGraphRapid(rapid, "tableRapid", "chartRapid");   
+    //Blitz
+    // drawGraphRapid(blitz, "tableBlitz", "chartBlitz"); 
+    //Bullet
+    // drawGraphRapid(bullet, "tableBullet", "chartBullet"); 
+}
 
 
-async function drawGraph() {
+async function drawGraphRapid(typeofgraph, tableId, chartId) {
     await getData();
 
-    const data = user_name.map((username, index) => ({ username, rating: rapid[index]}));
+    const data = user_name.map((username, index) => ({ username, rating: typeofgraph[index]}));
 
-// Sort data by rating in ascending order
+    // Sort Rapid data by rating
     const ascendingData = [...data].sort((a, b) => a.rating - b.rating);
     const descendingData = [...data].sort((a, b) => b.rating - a.rating);
 
@@ -49,9 +58,9 @@ async function drawGraph() {
     const desUserName = descendingData.map(item=>item.username);
     const descRating = descendingData.map(item=>item.rating);
 
-    // console.log(ratingsArray)
+    //Sort blitz data by rating 
 
-    const tableBody = document.querySelector("#myTable tbody");
+    const tableBody = document.querySelector(`#${tableId} tbody`);
     let x = 0;
     for(let i = 0; i<rapid.length;i++){
         const row = tableBody.insertRow();
@@ -66,7 +75,7 @@ async function drawGraph() {
     document.getElementById("bullet").textContent = avg_values[2];
     document.getElementById("total").textContent = rapid.length;
 
-    const ctx = document.getElementById('chart');
+    const ctx = document.getElementById(`${chartId}`);
        new Chart(ctx, {
         type: 'bar',
         data: {
@@ -79,9 +88,11 @@ async function drawGraph() {
         },
         options: {
             scales: {
-                y: {
-                    beginAtZero: true
-                }
+                x: {
+                    ticks: {
+                        autoSkip: false
+                    }
+                },
             }
         }
     });
@@ -98,4 +109,3 @@ function openTab(gameType)
   }
   document.getElementById(gameType).style.display = "block";  
 }
-

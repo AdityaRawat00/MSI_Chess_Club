@@ -62,12 +62,17 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
 
     const tableBody = document.querySelector(`#${tableId} tbody`);
     let x = 0;
+    let avgIndex = 20;
     for(let i = 0; i<rapid.length;i++){
         const row = tableBody.insertRow();
         x++;
         row.insertCell(0).textContent = x;
         row.insertCell(1).textContent = desUserName[i];
         row.insertCell(2).textContent = descRating[i];
+        if(desUserName[i] == "avg"){
+            avgIndex = i;
+            console.log(i);
+        }
     }
 
     document.getElementById("rapid").textContent = avg_values[0];
@@ -76,16 +81,21 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
     document.getElementById("total").textContent = rapid.length;
 
     const ctx = document.getElementById(`${chartId}`);
-       new Chart(ctx, {
+    const myChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: ascUserName,
             datasets: [{
                 label: 'Chess Rating',
                 data: ascRating,
-                borderWidth: 1
-            }]
-        },
+                borderWidth: 1,
+                backgroundColor: color=>{
+                    let colors = color.index == (ascRating.length - avgIndex-1)? "#E56353":"#329AC7";
+                    return colors;
+                }
+            },
+        ],
+    },
         options: {
             scales: {
                 x: {
@@ -96,6 +106,8 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
             }
         }
     });
+    // myChart.data.datasets[0].backgroundColor[avgIndex] = 'rgba(255, 99, 132, 1)';
+    // myChart.backgroundColor[avgIndex] = 'rgba(255, 99, 132, 1)';
 }
 
 

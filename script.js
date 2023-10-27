@@ -9,23 +9,17 @@ let data = []
 let avg_values = [];
 
 async function getData(){
-    // const csvPath = "chessdata.txt";
-    // const response = await fetch(csvPath);
-    // const data = await response.text();
-
-    const a = await fetch("https://randomsailor.pythonanywhere.com/");
-    const b = await a.json();
-    rapid = b["Rapid"];
-    user_name = b["Username"];
-    blitz = b["Blitz"];
-    bullet = b["Bullet"];
-    // const rows = data.split("\r\n").slice(1, -1);
+    const response = await fetch("https://randomsailor.pythonanywhere.com/");
+    const data = await response.json();
+    rapid = data["Rapid"];
+    user_name = data["Username"];
+    blitz = data["Blitz"];
+    bullet = data["Bullet"];
 
     avg_values[0] = rapid.slice(-1);
     avg_values[1] = blitz.slice(-1);
     avg_values[2] = bullet.slice(-1);
     avg_values[3] = 1400;
-    // avg_values[3] = rows[rows.length-1].split(',')[4];
 }
 
 
@@ -131,16 +125,4 @@ async function openGraph(graphType,tableType, cur)
     }
     document.getElementById(graphType).style.display = "block";
     document.getElementById(tableType).style.display = "block";
-}
-
-//Not being used
-function openTab(gameType)
-{
-    
-    var i;
-    var x = document.getElementsByClassName("optionContent");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";  
-    }
-    document.getElementById(gameType).style.display = "block";  
 }

@@ -9,21 +9,18 @@ let data = []
 let avg_values = [];
 
 async function getData(){
-    // const scriptPath = document.currentScript.src;
-    // const basePath = scriptPath.substring(0, scriptPath.lastIndexOf('/') + 1);
     const csvPath = "chessdata.txt";
     const response = await fetch(csvPath);
     const data = await response.text();
 
+    const a = await fetch("http://randomsailor.pythonanywhere.com/");
+    const b = await a.json();
+    rapid = b["Rapid"];
+    user_name = b["Username"];
+    blitz = b["Blitz"];
+    bullet = b["Bullet"];
     const rows = data.split("\r\n").slice(1, -1);
 
-    for(let ele of rows){
-        const row = ele.split(',')
-        user_name.push(row[0])
-        rapid.push(row[1])
-        blitz.push(row[2])
-        bullet.push(row[3])
-    }
     avg_values[0] = rapid.slice(-1);
     avg_values[1] = blitz.slice(-1);
     avg_values[2] = bullet.slice(-1);
@@ -32,24 +29,22 @@ async function getData(){
 
 
 async function displayGraphTable(current = 0){
+    if (data.length == 0)
+        await getData();
     //Rapid
     if(current == 0)
-    drawGraphRapid(rapid, "tableRapid", "chartRapid");   
+        drawGraphRapid(rapid, "tableRapid", "chartRapid");   
 //Blitz
-else if(current == 1)
-drawGraphRapid(blitz, "tableBlitz", "chartBlitz"); 
+    else if(current == 1)
+        drawGraphRapid(blitz, "tableBlitz", "chartBlitz"); 
 
 //Bullet
-else
-drawGraphRapid(bullet, "tableBullet", "chartBullet"); 
+    else
+        drawGraphRapid(bullet, "tableBullet", "chartBullet"); 
 }
 
 
 async function drawGraphRapid(typeofgraph, tableId, chartId) {
-    
-    if (data.length == 0)
-        await getData();
-    
     data = user_name.map((username, index) => ({ username, rating: typeofgraph[index]}));
     
     // Sorting Data in ascending and desceding

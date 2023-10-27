@@ -13,7 +13,7 @@ async function getData(){
     const response = await fetch(csvPath);
     const data = await response.text();
 
-    const a = await fetch("http://randomsailor.pythonanywhere.com/");
+    const a = await fetch("https://randomsailor.pythonanywhere.com/");
     const b = await a.json();
     rapid = b["Rapid"];
     user_name = b["Username"];

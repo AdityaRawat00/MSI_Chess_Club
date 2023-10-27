@@ -9,9 +9,9 @@ let data = []
 let avg_values = [];
 
 async function getData(){
-    const csvPath = "chessdata.txt";
-    const response = await fetch(csvPath);
-    const data = await response.text();
+    // const csvPath = "chessdata.txt";
+    // const response = await fetch(csvPath);
+    // const data = await response.text();
 
     const a = await fetch("https://randomsailor.pythonanywhere.com/");
     const b = await a.json();
@@ -19,12 +19,13 @@ async function getData(){
     user_name = b["Username"];
     blitz = b["Blitz"];
     bullet = b["Bullet"];
-    const rows = data.split("\r\n").slice(1, -1);
+    // const rows = data.split("\r\n").slice(1, -1);
 
     avg_values[0] = rapid.slice(-1);
     avg_values[1] = blitz.slice(-1);
     avg_values[2] = bullet.slice(-1);
-    avg_values[3] = rows[rows.length-1].split(',')[4];
+    avg_values[3] = 1400;
+    // avg_values[3] = rows[rows.length-1].split(',')[4];
 }
 
 

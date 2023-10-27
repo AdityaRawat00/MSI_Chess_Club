@@ -64,6 +64,10 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
     //end
     
     const tableBody = document.querySelector(`#${tableId} tbody`);
+    while(tableBody.rows.length > 1)
+    {
+        tableBody.deleterow(1);
+    }
     let x = 0;
     let avgIndex = 20;
     for(let i = 0; i<rapid.length;i++){

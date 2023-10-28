@@ -22,21 +22,17 @@
             <button><a href="">Your Stats</a></button>
     </div>
     <!-- End of navbar -->
-
-    <!-- Main Page -->
-    <div class="mainPage">
-        <!-- Image -->
-        <div class="newsImage" >
-            <img src="Images/chess_playing-removebg-preview.png" alt="eventCard">
-            <span class="banner-heading">MSI Chess Club</span>
+    
+    <div class="mainpage">
+        <div class="newsImage">
+        
         </div>
-        <!-- End of image -->
 
-        <!-- Stats overview -->
+        <!-- Start of overall stats -->
         <div class="overallStats">
             <h2 class="stats-heading">Avg Stats</h2>
             <hr>
-            <div class="">
+            <div>
                 <!-- Rapid -->
                 <div class="stats">
                     <div class="aabbcc">
@@ -88,28 +84,41 @@
                 <!-- End of total -->
             </div>
         </div>
-        <!-- End of stats -->
-    </div>
-    <hr>
-    <button class="graphOption" id="rapidGraph" onclick="openGraph('chartRapid','tableRapid', 0)">Rapid</button>
-    <button class="graphOption" id="blitzGraph" onclick="openGraph('chartBlitz','tableBlitz', 1)">Blitz</button>
-    <button class="graphOption" id="bulletGraph" onclick="openGraph('chartBullet','tableBullet',2)">Bullet</button>
-    <!-- Bar graph -->
-    <div class="canvas-div">
+        <!-- End of overall stats -->
+
+        <!-- Start of graph buttons -->
+        <div class="graphButtons">
+            <button class="graphOption" id="rapidGraph" onclick="openGraph('chartRapid','tableRapid', 0)">Rapid</button>
+            <button class="graphOption" id="blitzGraph" onclick="openGraph('chartBlitz','tableBlitz', 1)">Blitz</button>
+            <button class="graphOption" id="bulletGraph" onclick="openGraph('chartBullet','tableBullet',2)">Bullet</button>
+        </div>
+        <!-- End of graph buttons -->
+
+        <!-- Start of graph -->
         <div class="bargraph">
-            
+            <!-- Rapid graph -->
             <div class="char">
                 <canvas id="chartRapid" class="ratingGraph"></canvas>
             </div>
+            <!-- Rapid grpah -->
+
+            <!-- Blitz graph -->
             <div class="char">
                 <canvas id="chartBlitz" class="ratingGraph"></canvas>
             </div>
+            <!-- Blitz graph -->
+
+            <!-- Bullet graph -->
             <div class="char">
                 <canvas id="chartBullet" class="ratingGraph"></canvas>
             </div>
+            <!-- Bullet graph -->
         </div>
-        <!-- Table div -->
+        <!-- End of graph -->
+
+        <!-- Start of table container -->
         <div class="table-container">
+            <!-- Table heading -->
             <div class="thead-container">
                 <table>
                     <thead>
@@ -121,6 +130,9 @@
                     </thead>
                 </table>
             </div>
+            <!-- End of table heading -->
+
+            <!-- Table content -->
             <table id="tableRapid" class="ratingTable">
                 <tbody>
                     <!-- Table content will be added dynamically from JavaScript -->
@@ -136,10 +148,12 @@
                     <!-- Table content will be added dynamically from JavaScript -->
                 </tbody>
             </table>
+            <!-- Table content -->
         </div>
-        <!--End of table div  -->
+        <!-- End of table container -->
+
     </div>
-    <!-- End of bar graph -->
+    <!-- End of main page -->
 
     <script src="script.js"></script>
 </body>

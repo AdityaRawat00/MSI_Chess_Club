@@ -1,70 +1,119 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSV Data Sorting</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-top: 20px;
-        }
+<div class="wholepage">
+    <!-- Image -->
+    <div class="newsImage" >
+        <img src="Images/chess_playing-removebg-preview.png" alt="eventCard">
+        <span class="banner-heading">MSI Chess Club</span>
+    </div>
+    <!-- End of image -->
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
-</head>
-<body>
-
-<table id="csvTable">
-    <!-- Table content will be added dynamically using JavaScript -->
-</table>
-
-<script>
-    // Fetch the CSV file
-    fetch('chess_data.csv')
-        .then(response => response.text())
-        .then(csvData => {
-            // Parse CSV data into a JavaScript array of objects
-            const rows = csvData.split('\n').map(row => row.split(','));
-
-            // Get headers and data
-            const headers = rows[0];
-            const data = rows.slice(1);
-
-            // Sort the data by the 'Rapid_Rating' column (change the index for other columns)
-            data.sort((a, b) => a[1] - b[1]);
-
-            // Create the table dynamically
-            const table = document.getElementById('csvTable');
-
-            // Create header row
-            const headerRow = table.insertRow();
-            headers.forEach(header => {
-                const th = document.createElement('th');
-                th.textContent = header;
-                headerRow.appendChild(th);
-            });
-
-            // Create data rows
-            data.forEach(rowData => {
-                const tr = table.insertRow();
-                rowData.forEach(cellData => {
-                    const td = tr.insertCell();
-                    td.textContent = cellData;
-                });
-            });
-        })
-        .catch(error => console.error('Error fetching CSV file:', error));
-</script>
-
-</body>
-</html>
+    <!-- Stats overview -->
+    <div class="overallStats">
+        <h2 class="stats-heading">Avg Stats</h2>
+        <hr>
+        <div class="">
+            <!-- Rapid -->
+            <div class="stats">
+                <div class="aabbcc">
+                    <img src="Icons/chronometer.png" alt="clock" class="icons">
+                    <span>Rapid</span>
+                </div>
+                <span id="rapid">1200</span>
+            </div>
+            <!-- End of Rapid -->
+            <hr>
+            <!-- Blitz -->
+            <div class="stats">
+                <div class="aabbcc">
+                    <img src="Icons/light.png" alt="light" class="icons">
+                    <span>Blitz</span>
+                </div>
+                <span id="blitz">1200</span>
+            </div>
+            <!-- End of blitz -->
+            <hr>
+            <!-- Bullet -->
+            <div class="stats">
+                <div class="aabbcc">
+                    <img src="Icons/bullet.png" alt="bullet" class="icons">
+                    <span>Bullet</span>
+                </div>
+                <span id="bullet">1200</span>
+            </div>
+            <!-- End of bullet -->
+            <hr>
+            <!-- Puzzle -->
+            <div class="stats">
+                <div class="aabbcc">
+                    <img src="Icons/puzzle.png" alt="puzzle" class="icons">
+                    <span>Puzzle</span>
+                </div>
+                <span id="puzzle">1200</span>
+            </div>
+            <!-- End of Puzzle -->
+            <hr>
+            <!-- Total -->
+            <div class="stats">
+                <div class="aabbcc">
+                    <img src="Icons/pawn.png" alt="pawn" class="icons">
+                    <span>Total players</span>
+                </div>
+                <span id="total">42</span>
+            </div>
+            <!-- End of total -->
+        </div>
+    </div>
+    <!-- End of stats -->
+    <hr>
+    <div class="statsbutton">
+<button class="graphOption" id="rapidGraph" onclick="openGraph('chartRapid','tableRapid', 0)">Rapid</button>
+<button class="graphOption" id="blitzGraph" onclick="openGraph('chartBlitz','tableBlitz', 1)">Blitz</button>
+<button class="graphOption" id="bulletGraph" onclick="openGraph('chartBullet','tableBullet',2)">Bullet</button>
+    </div>
+<!-- Bar graph -->
+    <div class="canvas-div">
+    <div class="bargraph">
+        
+        <div class="char">
+            <canvas id="chartRapid" class="ratingGraph"></canvas>
+        </div>
+        <div class="char">
+            <canvas id="chartBlitz" class="ratingGraph"></canvas>
+        </div>
+        <div class="char">
+            <canvas id="chartBullet" class="ratingGraph"></canvas>
+        </div>
+    </div>
+    <!-- Table div -->
+    <div class="table-container">
+        <div class="thead-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>UserName</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <table id="tableRapid" class="ratingTable">
+            <tbody>
+                <!-- Table content will be added dynamically from JavaScript -->
+            </tbody>
+        </table>
+        <table id="tableBlitz" class="ratingTable">
+            <tbody>
+                <!-- Table content will be added dynamically from JavaScript -->
+            </tbody>
+        </table>
+        <table id="tableBullet" class="ratingTable">
+            <tbody>
+                <!-- Table content will be added dynamically from JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    <!--End of table div  -->
+    </div>
+<!-- End of bar graph -->
+</div>
+<!-- End of whole page -->

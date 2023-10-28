@@ -96,6 +96,7 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
         ],
     },
     options: {
+        // maintainAspectRatio :false,
         scales: {
             x: {
                 ticks: {

@@ -3,9 +3,10 @@ body{
     margin: auto;
     background-color: #2B2E31;
     font-family: monospace;
-    color:white
+    color:azure
 }
 
+/* Navbar */
 .navbar{
     background-image: url('Images/navBackGround.png');
     background-size: cover;
@@ -50,7 +51,6 @@ button:hover{
     margin-right: 15px;
     padding: 10px;
     backdrop-filter: blur(5px);
-    /* filter: blur(5px); */
 }
 
 a{
@@ -68,12 +68,10 @@ input{
 
 
 /* Main page */
-
 .mainpage{
     display: grid;
     grid-template-rows: repeat(4, 100px) 50px repeat(4, 100px);
     grid-template-columns: repeat(8, 1fr);
-    /* grid-template-columns: repeat(auto-fit, minimax(240, 1fr)); */
 }
 
 hr{
@@ -82,6 +80,7 @@ hr{
     width: 100%;
 }
 
+/* News image */
 .newsImage{
     grid-row: 1/5;
     grid-column: 1/7;
@@ -92,7 +91,6 @@ hr{
     padding: 10px;
     padding-left: 15px;
     background-color: #222426;
-    /* background-color: orange; */
     display: flex;
     align-items: center;
 }
@@ -106,42 +104,36 @@ hr{
 .banner-heading{
     margin-right: 10px;
     font-size: 60px;
-    font-family: monospace;
     word-spacing: -10px;
     letter-spacing: -1px;
-    color: white;
 }
+/* News image */
 
+/* Overall stats */
 .overallStats{
     grid-column: 7/9;
     grid-row: 1/5;
-
     margin:20px;
     background-color: #222426;
     text-align: left;
     padding: 10px 20px 20px 10px;
     border-radius: 10px;
-    padding-bottom: 20px;
 }
 .stats-heading{
     font-size: 22px;
-    font-family: monospace;
     letter-spacing: -0.5px;
     font-style: normal;
     font-weight: 400;
     margin-top: 6;
     margin-left: 6px;
 }
-
 .icons{
     height: 20px;
     margin: 0px 10px;
 }
-
 .aabbcc{
     display: inline-flex;
 }
-
 .stats{
     text-align: left;
     margin: 15px 0px;
@@ -150,17 +142,11 @@ hr{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     padding-left: 0px;
     font-size: 16px;
-    color: azure;
 }
+/* Overall stats */
 
-
-
-h2{
-    color : white;
-}
 
 /* Graph options */
-
 .graphButtons{
     grid-column: 3/7;
     margin: 0px 20px;
@@ -170,7 +156,7 @@ h2{
 
 .graphOption{
     font-size: 20px;
-    color: white;
+    color: azure;
 }
 
 .graphOption:hover{
@@ -187,8 +173,6 @@ h2{
 .bargraph{
     grid-row: 6/10;
     grid-column: 1/7;
-
-    /* height: 100%; */
     margin: 20px;
     padding: 10px;
     border-radius: 10px;
@@ -207,7 +191,6 @@ table{
     grid-row: 6/10;
     grid-column: 7/9;
     margin: 20px;
-
     overflow-y: auto;
     background-color: #222426;
     border-radius: 10px;
@@ -224,57 +207,84 @@ th{
 }
 
 th, td{
-    padding-left: 20px;
-    padding-right: 10px;
+    width: 33%;
     text-align: center;
 }
 /* Table */
 
+/* Responsive */
 @media (max-width: 700px) {
-    .mainpage{
-        display: grid;
-        grid-template-rows: repeat(3, 100px) 50px repeat(5, 100px);
-        grid-template-columns: repeat(8, 1fr);
-    /* grid-template-columns: repeat(auto-fit, minimax(240, 1fr)); */
-    }
-
-    
-    .newsImage{
-        grid-row: 1/2;
-        grid-column: 1/9;
-        background-color: green;
-    }
-
-    .overallStats{
-        grid-row: 2/4;
-        grid-column: 1/9;
-        background-color: orange;
-    }
-    .graphButtons{
-        grid-row: 4/5;
-        grid-column: 1/9;
-        margin: 0 10px;
-        background-color: yellow;
-    }
-    .bargraph{
-        grid-row: 5/8;
-        grid-column: 1/9;
-        padding: 0px;
-    }
-    /* .char{
-        height: 100%;
-        padding: 0;
-    } */
-
-    .table-container{
-        grid-row: 8/10;
-        grid-column: 1/9;
-    }
-
     .navbar{
         display:none;
     }
+
+    .mainpage{
+        display: grid;
+        grid-template-rows: repeat(4, 100px) 50px repeat(3, 100px);
+        grid-template-columns: repeat(8, 1fr);
+    }
+
+    .newsImage{
+        grid-row: 1/3;
+        grid-column: 1/9;
+        margin: 10px 20px;
+    }
+
+    .overallStats{
+        grid-row: 3/5;
+        grid-column: 1/9;
+        margin: 10px 20px;
+    }
+
+    .stats{
+        flex-direction: column;
+        text-align: center;
+        font-size: 18px;
+    }
+    .statsdata{
+        display: flex;
+    }
+    .stats-heading{
+        margin: 6px 0 10px 15px;
+    }
+    .aabbcc{
+        display: block;
+        margin-bottom: 10px;
+    }
+    .icons{
+        height: 26px;
+        margin-bottom: 5px;
+    }
+    hr{
+        display: none;
+    }
+
+    .total-player{
+        display: none;
+    }
+
+    .graphButtons{
+        grid-row: 5/6;
+        grid-column: 1/9;
+        display: flex;
+        justify-content: space-around;
+    }
+    .graphOption{
+        font-size: 18px;
+    }
+    
+    .graphOption:hover{
+        font-size: 18px;
+    }
+
+    .bargraph{
+        display: none;
+    }
+    
+    .table-container{
+        grid-row: 6/9;
+        grid-column: 1/9;
+        margin: 10px 20px;
+    }
 }
-
-
-
+/* Responsive */

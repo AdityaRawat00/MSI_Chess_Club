@@ -1,12 +1,10 @@
-const url = "https://api.chess.com/pub/player/{Player}/stats";
-const datalink = "https://docs.google.com/spreadsheets/d/1t3dnHg8SWWsiSEbYSCvPATRly2nMUb4KXXHFKf0uZlU/edit#gid=379472038";
-
 let user_name = [];
 let rapid = [];
 let blitz = [];
 let bullet = [];
 let data = []
 let avg_values = [];
+let puzzle = [];
 
 async function getData(){
     const response = await fetch("https://randomsailor.pythonanywhere.com/");
@@ -15,28 +13,35 @@ async function getData(){
     user_name = data["Username"];
     blitz = data["Blitz"];
     bullet = data["Bullet"];
+    puzzle = data["Puzzle"];
 
-    avg_values[0] = rapid.slice(-1);
-    avg_values[1] = blitz.slice(-1);
-    avg_values[2] = bullet.slice(-1);
-    avg_values[3] = 1400;
+    document.getElementById("rapid").textContent = rapid[user_name.indexOf("avg")];
+    document.getElementById("blitz").textContent = blitz[user_name.indexOf("avg")];
+    document.getElementById("bullet").textContent = bullet[user_name.indexOf("avg")];
+    document.getElementById("puzzle").textContent = puzzle[user_name.indexOf("avg")];
+    document.getElementById("total").textContent = rapid.length;
 }
 
 
-async function displayGraphTable(current = 0){
+async function displayGraphTable(current = 0) {
     if (data.length == 0)
         await getData();
-    //Rapid
-    if(current == 0)
-        drawGraphRapid(rapid, "tableRapid", "chartRapid");   
-//Blitz
-    else if(current == 1)
-        drawGraphRapid(blitz, "tableBlitz", "chartBlitz"); 
 
-//Bullet
+    const chartId = current === 0 ? "chartRapid" : (current === 1 ? "chartBlitz" : "chartBullet");
+
+    const existingChart = Chart.getChart(chartId);
+    if (existingChart) {
+        existingChart.destroy();
+    }
+
+    if (current === 0)
+        drawGraphRapid(rapid, "tableRapid", chartId);
+    else if (current === 1)
+        drawGraphRapid(blitz, "tableBlitz", chartId);
     else
-        drawGraphRapid(bullet, "tableBullet", "chartBullet"); 
+        drawGraphRapid(bullet, "tableBullet", chartId);
 }
+
 
 
 async function drawGraphRapid(typeofgraph, tableId, chartId) {
@@ -56,7 +61,7 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
     const tableBody = document.querySelector(`#${tableId} tbody`);
     while(tableBody.rows.length > 1)
     {
-        tableBody.deleterow(1);
+        tableBody.deleteRow(1);
     }
     let x = 0;
     let avgIndex = 20;
@@ -71,13 +76,6 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
             console.log(i);
         }
     }
-    
-    document.getElementById("rapid").textContent = avg_values[0];
-    document.getElementById("blitz").textContent = avg_values[1];
-    document.getElementById("bullet").textContent = avg_values[2];
-    document.getElementById("puzzle").textContent = avg_values[3];
-    console.log(avg_values[3]);
-    document.getElementById("total").textContent = rapid.length;
     
     const ctx = document.getElementById(`${chartId}`);
     new Chart(ctx, {
@@ -96,7 +94,6 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
         ],
     },
     options: {
-        // maintainAspectRatio :false,
         scales: {
             x: {
                 ticks: {

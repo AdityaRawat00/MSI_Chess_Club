@@ -149,23 +149,12 @@ hr{
 /* Graph options */
 .graphButtons{
     grid-column: 3/7;
-    margin: 0px 20px;
+    margin: 0 20px;
     border-radius: 10px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
     background-color: #222426;
-}
-
-.graphOption{
-    font-size: 20px;
-    color: azure;
-}
-
-.graphOption:hover{
-    font-size: 20px;
-    color: rgb(141, 231, 132);
-}
-
-.graphOption:focus{
-    color: rgb(141, 255, 255);
 }
 
 #usernameInput{
@@ -174,9 +163,30 @@ hr{
     color: white;
     outline: none;
     border-radius: 10px;
+    margin-left: 20px;
+
 }
 
-/* Graph options */
+.custom-radio input[type="radio"] {
+    display: none;
+}
+
+.custom-radio label {
+    margin: 5px;
+    display: inline-block;
+    padding: 3px 16px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.custom-radio input[type="radio"]:checked + label {
+    background-color: #46cce3; 
+    color: white;
+}
+/* End of Graph options */
+
 
 /* Graph */
 .bargraph{
@@ -268,6 +278,10 @@ th, td{
         display: none;
     }
 
+    #usernameInput{
+        display: none;
+    }
+
     .total-player{
         display: none;
     }
@@ -278,13 +292,6 @@ th, td{
         display: flex;
         justify-content: space-around;
         padding: 10px;
-    }
-    .graphOption{
-        font-size: 18px;
-    }
-    
-    .graphOption:hover{
-        font-size: 18px;
     }
 
     .bargraph{
@@ -297,24 +304,4 @@ th, td{
         margin: 10px 20px;
     }
 }
-
-.custom-radio input[type="radio"] {
-    display: none;
-}
-
-.custom-radio label {
-    margin: 5px;
-    display: inline-block;
-    padding: 10px 20px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 10px;
-}
-
-.custom-radio input[type="radio"]:checked + label {
-    background-color: #46cce3; 
-    color: white;
-}
-
 /* Responsive */

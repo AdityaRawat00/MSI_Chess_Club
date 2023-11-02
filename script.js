@@ -68,15 +68,15 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
 
     
     const tableBody = document.querySelector(`#${tableId} tbody`);
-    while(tableBody.rows.length > 1)
+    while(tableBody.rows.length >= 1)
     {
-        tableBody.deleteRow(1);
+        tableBody.deleteRow(0);
     }
+
     let x = 0;
     let avgIndex = 20;
     for(let i = 0; i<rapid.length;i++){
         const row = tableBody.insertRow();
-        
         x++;
         row.insertCell(0).textContent = x;
         row.insertCell(1).textContent = desUserName[i];
@@ -85,11 +85,10 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
             avgIndex = i;
         }
         if(i == userRank-1 && userRank != -1){
-            row.style.backgroundColor = "#F7BB38";
+            row.style.backgroundColor = "#FCD63A";
+            row.style.color = "black";
         }
-
     }
-    
 
     const ctx = document.getElementById(`${chartId}`);
     new Chart(ctx, {
@@ -173,8 +172,11 @@ function checkEnter(event) {
         entered_name = enteredUsername.toLowerCase();
         const lowercaseNameList = user_name.map(name => name.toLowerCase());
 
-        if(lowercaseNameList.includes(entered_name))
+        if(lowercaseNameList.includes(entered_name)){
             openGraph('chartRapid','tableRapid', 0);
+            const rapidButton = document.getElementById("rapidGraph");
+            rapidButton.checked = true;
+        }
     }
 }
 

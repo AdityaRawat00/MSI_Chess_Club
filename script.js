@@ -76,6 +76,7 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
     let avgIndex = 20;
     for(let i = 0; i<rapid.length;i++){
         const row = tableBody.insertRow();
+        
         x++;
         row.insertCell(0).textContent = x;
         row.insertCell(1).textContent = desUserName[i];
@@ -83,6 +84,10 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
         if(desUserName[i] == "avg"){
             avgIndex = i;
         }
+        if(i == userRank-1 && userRank != -1){
+            row.style.backgroundColor = "#F7BB38";
+        }
+
     }
     
 

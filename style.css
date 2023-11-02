@@ -277,6 +277,7 @@ th, td{
         grid-column: 1/9;
         display: flex;
         justify-content: space-around;
+        padding: 10px;
     }
     .graphOption{
         font-size: 18px;

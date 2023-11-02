@@ -90,10 +90,20 @@
 
         <!-- Start of graph buttons -->
         <div class="graphButtons">
-            <button class="graphOption" id="rapidGraph" autofocus onclick="openGraph('chartRapid','tableRapid', 0)">Rapid</button>
-            <button class="graphOption" id="blitzGraph" onclick="openGraph('chartBlitz','tableBlitz', 1)">Blitz</button>
-            <button class="graphOption" id="bulletGraph" onclick="openGraph('chartBullet','tableBullet',2)">Bullet</button>
+            <label class="custom-radio">
+                <input type="radio" name="graph-option" id="rapidGraph" checked="true">
+                <label for="rapidGraph">Rapid</label>
+            </label>
+            <label class="custom-radio">
+                <input type="radio" name="graph-option" id="blitzGraph">
+                <label for="blitzGraph">Blitz</label>
+            </label>
+            <label class="custom-radio">
+                <input type="radio" name="graph-option" id="bulletGraph">
+                <label for="bulletGraph">Bullet</label>
+            </label>
         </div>
+        
         <!-- End of graph buttons -->
 
         <!-- Start of graph -->

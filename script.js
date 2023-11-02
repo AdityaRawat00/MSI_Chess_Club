@@ -105,6 +105,23 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
 });
 }
 
+const rapidGraphRadio = document.getElementById("rapidGraph");
+const blitzGraphRadio = document.getElementById("blitzGraph");
+const bulletGraphRadio = document.getElementById("bulletGraph");
+
+// Event listeners to the radio buttons
+rapidGraphRadio.addEventListener("change", function () {
+    openGraph('chartRapid', 'tableRapid', 0);
+});
+
+blitzGraphRadio.addEventListener("change", function () {
+    openGraph('chartBlitz', 'tableBlitz', 1);
+});
+
+bulletGraphRadio.addEventListener("change", function () {
+    openGraph('chartBullet', 'tableBullet', 2);
+});
+
 //calling for default graph
 openGraph('chartRapid','tableRapid', 0);
 

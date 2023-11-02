@@ -167,6 +167,15 @@ hr{
 .graphOption:focus{
     color: rgb(141, 255, 255);
 }
+
+#usernameInput{
+    height: 20%;
+    background-color: #2B2E31;
+    color: white;
+    outline: none;
+    border-radius: 10px;
+}
+
 /* Graph options */
 
 /* Graph */

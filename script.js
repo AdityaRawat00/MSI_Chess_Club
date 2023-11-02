@@ -3,8 +3,9 @@ let rapid = [];
 let blitz = [];
 let bullet = [];
 let data = []
-let avg_values = [];
 let puzzle = [];
+
+let entered_name = null;
 
 async function getData(){
     const response = await fetch("https://randomsailor.pythonanywhere.com/");
@@ -57,6 +58,14 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
     const desUserName = descendingData.map(item=>item.username);
     const descRating = descendingData.map(item=>item.rating);
     //end
+
+    let userRank = -1;
+    if(entered_name != null){
+        const lowercaseNameList = desUserName.map(name => name.toLowerCase());
+        userRank = lowercaseNameList.indexOf(entered_name)+1;
+        console.log(userRank);
+    }
+
     
     const tableBody = document.querySelector(`#${tableId} tbody`);
     while(tableBody.rows.length > 1)
@@ -73,10 +82,10 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
         row.insertCell(2).textContent = descRating[i];
         if(desUserName[i] == "avg"){
             avgIndex = i;
-            console.log(i);
         }
     }
     
+
     const ctx = document.getElementById(`${chartId}`);
     new Chart(ctx, {
         type: 'bar',
@@ -87,7 +96,17 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
                 data: ascRating,
                 borderWidth: 1,
                 backgroundColor: color=>{
-                    let colors = color.index == (ascRating.length - avgIndex-1)? "#E56353":"#329AC7";
+                    let colors;
+                    if(color.index == ascRating.length-userRank && userRank != -1)
+                        colors = "#F7BB38";
+
+                    else{
+                        if(color.index == ascRating.length-avgIndex-1)
+                        colors = "#E56353";
+
+                        else
+                            colors = "#329AC7";
+                    }
                     return colors;
                 }
             },
@@ -141,3 +160,16 @@ async function openGraph(graphType,tableType, cur)
     document.getElementById(graphType).style.display = "block";
     document.getElementById(tableType).style.display = "block";
 }
+
+function checkEnter(event) {
+    if (event.key === "Enter") {
+        console.log("working");
+        const enteredUsername = document.getElementById("usernameInput").value;
+        entered_name = enteredUsername.toLowerCase();
+        const lowercaseNameList = user_name.map(name => name.toLowerCase());
+
+        if(lowercaseNameList.includes(entered_name))
+            openGraph('chartRapid','tableRapid', 0);
+    }
+}
+

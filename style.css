@@ -84,21 +84,24 @@ hr{
 .newsImage{
     grid-row: 1/5;
     grid-column: 1/7;
-
+    max-width: 100%;
     margin:20px;
     border-radius: 10px;
     text-align: left;
-    padding: 10px;
+    padding: 5%;
     padding-left: 15px;
     background-color: #222426;
     display: flex;
     align-items: center;
+    overflow: hidden;
 }
 
 .newsImage img{
-    height: 320px;
+    display: block;
+    height: auto;
+    width: 65%;
     border-radius: 10px;
-    margin-right: 40px;
+    margin-right: 5px;
 }
 
 .banner-heading{

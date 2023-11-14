@@ -83,6 +83,7 @@ async function drawGraphRapid(typeofgraph, tableId, chartId) {
         row.insertCell(2).textContent = descRating[i];
         if(desUserName[i] == "avg"){
             avgIndex = i;
+            row.style.backgroundColor = "#E56353";
         }
         if(i == userRank-1 && userRank != -1){
             row.style.backgroundColor = "#FCD63A";
